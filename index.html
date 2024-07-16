@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>tipCalculator</title>
+</head>
+<body>
+    <header>
+        <button id="standardButton" class="tab-button " onclick="showTab('standard')">Standard Calculator</button>
+        <button id="tipButton" class="tab-button active" onclick="showTab('tip')"> Tip Calculator</button>
+    </header>
+    <main>
+        <!-- standard calculator -->
+        <section id="standard" class="tab-content ">
+          <div class="banner-container">
+            <div class="container" >
+              <div class="calculator">
+                <input id="display" readonly>
+                <div class="keys">
+                  <div class="buttons">
+                    <button onclick="appendToDisplay('+')" class="operator-btn">+</button>
+                    <button onclick="appendToDisplay('7')">7</button>
+                    <button onclick="appendToDisplay('8')">8</button>
+                    <button onclick="appendToDisplay('9')">9</button>
+                  </div>
+                  <div class="buttons">
+                    <button onclick="appendToDisplay('-')" class="operator-btn">-</button>
+                    <button onclick="appendToDisplay('4')">4</button>
+                    <button onclick="appendToDisplay('5')">5</button>
+                    <button onclick="appendToDisplay('6')">6</button>
+                  </div>
+                  <div class="buttons">
+                    <button onclick="appendToDisplay('*')" class="operator-btn">*</button>
+                    <button onclick="appendToDisplay('1')">1</button>
+                    <button onclick="appendToDisplay('2')">2</button>
+                    <button onclick="appendToDisplay('3')">3</button>
+                  </div>
+                  <div class="buttons">
+                    <button onclick="appendToDisplay('/')" class="operator-btn">/</button>
+                    <button onclick="appendToDisplay('0')">0</button>
+                    <button onclick="appendToDisplay('.')">.</button>
+                    <button onclick="calculate()">=</button>
+                  </div>
+                  <div class="buttons">
+                    <button onclick="clearDisplay('C')" class="operator-btn">C</button>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+
+        </section>
+        <!-- tip calculator -->
+        <section id="tip" class="tab-content active">
+            <div class="banner-container">
+                <div class="container" id="topContainer">
+                  <div class="title">Bill Total</div>
+                  <div class="inputContainer">
+                    <span>$</span>
+                    <input 
+                      onkeyup="calculateBill()"
+                      type="text"
+                      id="billTotalInput"
+                      placeholder="0.00"
+                      >
+                  </div>
+                </div>    
+                <div class="container">
+                  <div class="title">Tip</div>
+                  <div class="inputContainer">
+                    <span>%</span>
+                    <input
+                      onkeyup="calculateBill()"
+                      type="text"
+                      id="tipInput"
+                      placeholder="10"
+                      >
+                  </div>
+                </div>
+                <div class="container" id="bottom">
+                  <div class="leftContainer">
+                    <div class="title">People</div>
+                    <div class="control">
+                      <span class="buttonContainer">
+                        <button class="splitButton" onClick="increasePeople()">
+                          <span class="buttonText">+</span>
+                        </button>
+                      </span>
+                      <span class="splitAmount" id="numberOfPeople">1</span>
+                      <span class="buttonContainer">
+                        <button class="splitButton" onClick="decreasePeople()">
+                          <span class="buttonText">-</span>
+                        </button>
+                      </span>
+                      
+                    </div>        
+                  </div>
+            
+                  <div class="rightContainer">
+                    <div class="title">Total Per Person</div>
+                    <span class="total" id="perPersonTotal">$0.00</span>
+                  </div>
+                  
+                </div>
+              </div>
+        </section>
+    </main>
+    <script src="/scripts/main.js"></script>   
+    <script src="/scripts/tipcalculator.js"></script>
+    <script src="/scripts/standardcalculator.js"></script>
+</body>
+</html>
